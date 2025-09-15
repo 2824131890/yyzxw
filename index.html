@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta data-n-head="ssr" data-hid="description" name="description"
+        content="自学有提升，分享有收益，来优优自学网畅学海量精品课程，平台持续更新Excel课程、PS视频课、C4D教程、PPT视频教程、五笔打字视频课、PR视频剪辑课程、剪映视频教学、英语、日语、韩语、健身视频课、瑜伽课程、服装设计与搭配、销售管理、商业模式、简历撰写视频课、手机拍照修图课程等">
+    <meta data-n-head="ssr" data-hid="keywords" name="keywords"
+        content="自学视频教程,免费设计教程,办公软件教程,Excel视频教程,Word视频教程,PPT教程,PS教程,Lightroom视频课,PR视频课程,副业视频课程,摄影课程,学画画视频教程,素描教程,英语课程,日语课程,外贸英语视频课,瑜伽视频课,健身教程,剪映视频教学,短视频剪辑课程,C4D视频课,AI平面设计教程,WPS视频课,学电脑视频教程,五笔打字课程,拼音打字视频课">
+    <title>优优自学网 - 学办公学设计学管理，学摄影学健身学外语，学啥都简单</title>
+    <link rel="icon" href="https://www.uuzixue.com/favicon.ico">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- 侧边栏window定位 -->
+    <div class="scrollbar">
+        <ul>
+            <li data-id="1">
+                <img src="https://cdn.uuzixue.com/image/pc/scrollbar/1.png" alt="未知属性">
+                <span>免费会员</span>
+                <!-- 免费会员 -->
+                <div class="free-vip">
+                    <h3>登录后才能领取免费会员哦！</h3>
+                    <div class="boxx"></div>
+                </div>
+            </li>
+            <li data-id="2">
+                <img src="https://cdn.uuzixue.com/image/pc/scrollbar/2.png" alt="未知属性">
+                <span>在线咨询</span>
+            </li>
+            <li data-id="3">
+                <img src="https://cdn.uuzixue.com/image/pc/scrollbar/3.png" alt="未知属性">
+                <span>手机看课</span>
+                <!-- 二维码 -->
+                <div class="code">
+                    <img src="shzyhxjzg.png" alt="社会主义核心价值观">
+                    <!-- 三角形 -->
+                    <div class="boxx"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 免费会员 -->
+    <!-- <div class="free-vip"></div> -->
+    <!-- 二维码 -->
+    <!-- <div class="code">
+        <img src="shzyhxjzg.png" alt="社会主义核心价值观"> -->
+    <!-- 三角形 -->
+    <!-- <div class="boxx"></div>
+    </div> -->
+    <!-- ---------------------- -->
+    <div class="box">
+        <!-- 头部导航栏 -->
+        <div class="box-top">
+            <div class="left">
+                <div class="left-img">
+                    <a href="javescript(void);">
+                        <img src="	https://cdn.uuzixue.com/image/pc/0617/logo.png" alt="优优自学网">
+                    </a>
+                    <div class="logo-hover"></div>
+                </div>
+                <div class="left-search">
+                    <input type="text" name="search" id="search" placeholder="请输入内容">
+                    <button>搜索</button>
+                </div>
+            </div>
+            <div class="right">
+                <div class="login">
+                    <a href="#">
+                        登录 | 注册
+                    </a>
+                </div>
+                <div class="vip">
+                    <a href="#">
+                        <img src="https://cdn.uuzixue.com/image/pc/vip.png" alt="开通VIP">
+                        开通VIP
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 菜单栏 -->
+        <div class="menu">
+            <div class="menu-x">
+                <a href="#" class="curr">首页</a>
+                <a href="#">电脑办公软件</a>
+                <a href="#">平面设计软件</a>
+                <a href="#">工程设计软件</a>
+                <a href="#">影视动画软件</a>
+                <a href="#">兴趣成长</a>
+                <a href="#">UI设计</a>
+                <a href="#">外语学习</a>
+                <a href="#">下载软件</a>
+            </div>
+        </div>
+        <!-- banner轮播图 -->
+        <div class="banner">
+            <img src="https://cdn.uuzixue.com/image/1720512604412-a8f04e01-7e23-9929-d7fd-902ba9e544da.jpg"
+                alt="banner轮播图">
+            <ul>
+                <li class="active" data-id="0"></li>
+                <li data-id="1"></li>
+            </ul>
+        </div>
+        <!-- 标题最新 -->
+        <div class="title">
+            <p>最新上架</p>
+            <p>课程持续上新，会员无限畅学所有课程</p>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            let li = document.querySelectorAll('.scrollbar li')
+            let code = document.querySelector('.code')
+            let free_vip = document.querySelector('.free-vip')
+            li.forEach((item) => {
+                item.addEventListener('mouseenter', (e) => {
+                    if(parseInt(e.target.dataset.id) === 1){
+                        free_vip.style.display = 'block'
+                    }
+                    if (parseInt(e.target.dataset.id) === 3) {
+                        code.style.display = 'block'
+                    }
+                })
+                item.addEventListener('mouseleave', (e) => {
+                    if(parseInt(e.target.dataset.id) === 1){
+                        free_vip.style.display = 'none'
+                    }
+                    if (parseInt(e.target.dataset.id) === 3) {
+                        code.style.display = 'none'
+                    }
+                })
+            })
+        })();
+        // 第一种轮播
+        (function () {
+            let i = 0
+            let timer = 0
+            let banners = document.querySelector('.banner')
+            let img = document.querySelector('.banner img')
+            let li = document.querySelectorAll('.banner li')
+            let arr = [
+                {
+                    url: 'https://cdn.uuzixue.com/image/1720512604412-a8f04e01-7e23-9929-d7fd-902ba9e544da.jpg'
+                },
+                {
+                    url: 'https://cdn.uuzixue.com/image/1698972579713-36891f4d-6436-2bd9-03ad-eeae00463fac.jpg'
+                }
+            ]
+            function banner() {
+                img.src = arr[i].url
+                if (document.querySelector('.banner ul .active')) {
+                    document.querySelector('.banner ul .active').classList.remove('active')
+                }
+                document.querySelector(`.banner ul li:nth-child(${i + 1})`).classList.add('active')
+            }
+            timer = setInterval(() => {
+                i++
+                if (i >= arr.length) {
+                    i = 0
+                }
+                banner()
+            }, 2000)
+            li.forEach((item) => {
+                item.addEventListener('mouseenter', (e) => {
+                    i = parseInt(e.target.dataset.id)
+                    banner()
+                })
+            })
+            banners.addEventListener('mouseenter', () => {
+                clearInterval(timer)
+            })
+            banners.addEventListener('mouseleave', () => {
+                clearInterval(timer)
+                timer = setInterval(() => {
+                    i++
+                    if (i >= arr.length) {
+                        i = 0
+                    }
+                    banner()
+                }, 2000)
+            })
+        })();
+        // 第二种轮播
+
+    </script>
+
+</body>
+
+</html>
