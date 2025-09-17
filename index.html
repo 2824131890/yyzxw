@@ -15,6 +15,68 @@
 </head>
 
 <body>
+    <!-- 登录页面 -->
+    <form action="javascript:;" autocomplete="off">
+        <div class="login-body">
+            <div class="login_left"></div>
+            <div class="login_right">
+                <div class="login-box">
+                    <div class="top">
+                        <div class="top-title">
+                            登录后
+                            <span>立即学习！</span>
+                        </div>
+                        <i>×</i>
+                    </div>
+                    <div class="box-lb">
+                        <div class="lb">
+                            <div class="wx bottom" data-id="1">微信登录</div>
+                            <div class="un" data-id="2">账号登录</div>
+                        </div>
+                        <div class="wxsys" data-id="1">
+                            <div class="code">
+                                <img src="shzyhxjzg.png" alt="微信登录">
+                            </div>
+                            <p>使用微信扫一扫登录</p>
+                            <p>“优优自学网”</p>
+                            <div class="button">
+                                <button>快捷登录</button>
+                            </div>
+                        </div>
+                        <div class="undl" data-id="2">
+                            <div class="undl-box">
+                                <div class="el-form-item__content">
+                                    <div class="u">账&nbsp;&nbsp;&nbsp;号</div>
+                                    <input type="text" name="username" id="username" placeholder="请输入用户名">
+                                    <span></span>
+                                </div>
+                                <div class="el-form-item__content">
+                                    <div class="p">密&nbsp;&nbsp;&nbsp;码</div>
+                                    <input type="password" name="password" id="password" placeholder="请输入密码">
+                                    <span></span>
+                                </div>
+                                <div class="el-form-item__content">
+                                    <div class="c">验证码</div>
+                                    <input type="text" name="code" id="code" placeholder="请输入验证码">
+                                    <img src="验证码.png" alt="验证码">
+                                    <span></span>
+                                </div>
+                                <button>
+                                    <span>登录</span>
+                                </button>
+                                <div class="noun">
+                                    没有账号？
+                                    <a href="#">
+                                        <span>立即注册</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
     <!-- 侧边栏window定位 -->
     <div class="scrollbar">
         <ul>
@@ -35,7 +97,7 @@
                 <img src="https://cdn.uuzixue.com/image/pc/scrollbar/3.png" alt="未知属性">
                 <span>手机看课</span>
                 <!-- 二维码 -->
-                <div class="code">
+                <div class="codeindex">
                     <img src="shzyhxjzg.png" alt="社会主义核心价值观">
                     <!-- 三角形 -->
                     <div class="boxx"></div>
@@ -589,6 +651,122 @@
     </div>
 
     <script>
+        // 表单验证
+        (function(){
+            let username = document.querySelector('input[name=username]')
+            let password= document.querySelector('input[name=password]')
+            let codei = document.querySelector('input[name=code]')
+            let button = document.querySelector('.undl-box button')
+            // 处理账号
+            username.addEventListener('blur', verifyUsername)
+            function verifyUsername(){
+                // 正则表达式
+                const z = /^[a-zA-Z0-9-_]{6,18}$/
+                let res = z.test(username.value)
+                if(!username.value){
+                    username.style = 'border: 1px solid red;'
+                    username.nextElementSibling.innerHTML = '请输入账号'
+                    username.nextElementSibling.style = 'color: red !important'
+                    return false
+                }
+                if(!res){
+                    username.style = 'border: 1px solid red;'
+                    username.nextElementSibling.innerHTML = '账号必须满足6~18位字母,数字,下划线组成'
+                    username.nextElementSibling.style = 'color: red !important'
+                    return false
+                }
+                username.style = 'border: 1px solid rgb(220, 223, 230);'
+                username.nextElementSibling.innerHTML = ''
+                return true
+            }
+
+            // 处理密码
+            password.addEventListener('blur', verifyPassword)
+            function verifyPassword(){
+                // 正则表达式
+                const z = /^[a-zA-Z0-9-_]{6,18}$/
+                let res = z.test(password.value)
+                if(!password.value){
+                    password.style = 'border: 1px solid red;'
+                    password.nextElementSibling.innerHTML = '请输入密码'
+                    password.nextElementSibling.style = 'color: red !important'
+                    return false
+                }
+                if(!res){
+                    password.style = 'border: 1px solid red;'
+                    password.nextElementSibling.innerHTML = '密码必须满足6~18位字母,数字,下划线组成'
+                    password.nextElementSibling.style = 'color: red !important'
+                    return false
+                }
+                password.style = 'border: 1px solid rgb(220, 223, 230);'
+                password.nextElementSibling.innerHTML = ''
+                return true
+            }
+
+            // 处理验证码
+            codei.addEventListener('blur', verifyCode)
+            function verifyCode(){
+                // 正则表达式
+                const z = /^[a-zA-Z0-9]{4}$/
+                let res = z.test(codei.value)
+                if(!codei.value){
+                    codei.style = 'border: 1px solid red;'
+                    codei.nextElementSibling.nextElementSibling.innerHTML = '请输入验证码'
+                    codei.nextElementSibling.nextElementSibling.style = 'color: red !important'
+                    return false
+                }
+                if(!res){
+                    codei.style = 'border: 1px solid red;'
+                    codei.nextElementSibling.nextElementSibling.innerHTML = '验证码必须满足四位'
+                    codei.nextElementSibling.nextElementSibling.style = 'color: red !important'
+                    return false
+                }
+                codei.style = 'border: 1px solid rgb(220, 223, 230);'
+                codei.nextElementSibling.nextElementSibling.innerHTML = ''
+                return true
+            }
+            button.addEventListener('click', (e) => {
+                console.log('我是提交事件')
+            })
+        })();
+        // 登录注册
+        (function () {
+            let lb = document.querySelector('.lb')
+            let lbs = document.querySelector('.lb .bottom')
+            let div = document.querySelectorAll('.lb div[data-id]')
+            let wxsys = document.querySelector('.wxsys')
+            let undl = document.querySelector('.undl')
+            let i = document.querySelector('.top i')
+            let login = document.querySelector('.login')
+            lb.addEventListener('click', (e) => {
+                if (e.target.dataset.id) {
+                    let id = parseInt(e.target.dataset.id)
+                    div.forEach((item) => {
+                        item.classList.remove('bottom')
+                    })
+                    e.target.classList.add('bottom')
+                    wxsys.style.display = id === 1 ? 'block' : 'none'
+                    undl.style.display = id === 2 ? 'block' : 'none'
+                }
+            })
+            document.querySelector('.login-body').style.display = `none`
+            window.addEventListener('load', () => {
+                document.querySelector('.login-body').style.display = `none`
+                document.body.style.overflow = 'scroll';
+            })
+            i.addEventListener('click', (e) => {
+                document.querySelector('.login-body').style.display = `none`
+                document.body.style.overflow = 'scroll';
+                location.href = ''
+            })
+
+            login.addEventListener('click', () => {
+                document.querySelector('.login-body').style.display = `block`
+                document.body.style.overflow = 'hidden';
+            })
+        })();
+
+        // 切换课程
         (function () {
             let btn = document.querySelectorAll('.new_arrival_title .btn button')
             let popular_tutorials = document.querySelector('.popular-tutorials')
@@ -612,23 +790,24 @@
         // 侧边栏
         (function () {
             let li = document.querySelectorAll('.scrollbar li')
-            let code = document.querySelector('.code')
+            let codeindex = document.querySelector('.codeindex')
             let free_vip = document.querySelector('.free-vip')
             li.forEach((item) => {
                 item.addEventListener('mouseenter', (e) => {
                     if (parseInt(e.target.dataset.id) === 1) {
-                        free_vip.style.display = 'block'
+                        free_vip.style = 'display: block !important;'
                     }
                     if (parseInt(e.target.dataset.id) === 3) {
-                        code.style.display = 'block'
+                        codeindex.style = 'display: block !important;'
                     }
+                    console.log(parseInt(e.target.dataset.id) === 3)
                 })
                 item.addEventListener('mouseleave', (e) => {
                     if (parseInt(e.target.dataset.id) === 1) {
-                        free_vip.style.display = 'none'
+                        free_vip.style = 'display: none !important;'
                     }
                     if (parseInt(e.target.dataset.id) === 3) {
-                        code.style.display = 'none'
+                        codeindex.style = 'display: none !important;'
                     }
                 })
             })
